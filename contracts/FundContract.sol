@@ -44,10 +44,10 @@ contract FundContract {
 // Только для участников фонда
   require(between[msg.sender]);
 
-// Получаем сумму из функции баланс
+// Получаем сумму из функции balance() которую можно выввести 
   uint transferring = FundContract.balance();
   require(transferring != 0);
-// Записываем что уже был вывод
+// Записываем сумму которую пользователь вывел, чтобы он не смог вывести больше 
   amountsWithdrew[msg.sender] += transferring;
 // Транзакция
   tokenContract.Fund(msg.sender, transferring);
